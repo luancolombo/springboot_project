@@ -8,30 +8,31 @@ import org.springframework.stereotype.Service;
 
 import com.firstSpringProject.Spring.entities.User;
 import com.firstSpringProject.Spring.repositories.UserRepository;
+import com.firstSpringProject.Spring.services.exception.ResourceNotFoundException;
 
 @Service
 public class UserService {
-	
+
 	@Autowired
 	private UserRepository repository;
-	
+
 	public List<User> findAll() {
 		return repository.findAll();
 	}
-	
+
 	public User findById(Long id) {
 		Optional<User> obj = repository.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
-	
+
 	public User insert(User obj) {
 		return repository.save(obj);
 	}
-	
+
 	public void delete(Long id) {
 		repository.deleteById(id);
 	}
-	
+
 	public User update(Long id, User obj) {
 		User entity = repository.getReferenceById(id);
 		updateData(entity, obj);
