@@ -3,7 +3,7 @@
 
 # Sobre o projeto
 
-É um projeto de Web Services, que consiste em uma aplicação de vendas onde se pode criar, atualizar e deletar os items, tais como usuários 
+É um projeto de Web Services, que consiste em uma aplicação de vendas onde se pode criar, atualizar e deletar os items, tais como usuários, 
 pedidos e produtos. O mesmo foi apresentado no curso de Java e Spring do professor Nelio Alves.
 
 
